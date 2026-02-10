@@ -1,78 +1,155 @@
-# BFHL Backend Node.js Project
+# SehajGulbadher_2310991046_sehaj1046.be23@chitkara.edu.in_
 
-Hi there! Welcome to the backend repository for the BFHL qualifier exam. This project is a serverless Node.js application designed to handle various mathematical and AI-driven operations.
+Welcome!
+This repository contains the backend solution for the Qualifier Exam. It is a serverless Node.js REST API that performs mathematical operations and basic AI-based question answering.
+The project is lightweight, easy to understand, and deployed on Vercel for fast and scalable performance.
 
-## What Does This Project Do?
+🚀 What Does This API Do?
+This API accepts JSON input and performs different operations based on the request:
 
-This project exposes a REST API that can perform a variety of tasks based on the input you provide. Whether you need to calculate Fibonacci sequences, find prime numbers, compute LCM/HCF, or even chat with an AI, this API has you covered.
 
-It's built to be lightweight and deployable on Vercel, ensuring fast response times and scalability.
+Generate Fibonacci sequences
 
-## Getting Started
 
-To get this project up and running locally or to deploy it, you'll need to set up a few things first.
+Filter prime numbers
 
-### Prerequisites
 
-- Node.js (Version 18.x recommended)
-- A Google Gemini API Key
+Calculate LCM and HCF
 
-### Configuration
 
-The project requires a couple of environment variables to function correctly. You can set these in your deployment environment or update them directly in `api/bfhl.js` for local testing (though environment variables are safer!).
+Answer questions using Google Gemini AI
 
-| Variable | Description |
-| :--- | :--- |
-| `OFFICIAL_EMAIL` | Your registered email address (e.g., `your_email@bajajfinserv.in`). This will be included in every API response. |
-| `GEMINI_API_KEY` | Your Google Gemini API Key. This is used to power the AI features of the API. |
 
-## How to Use the API
+Provide a health check endpoint
 
-The API endpoint is `POST /api/bfhl`. You send a JSON body with a specific key to trigger different operations.
 
-### 1. Mathematical Operations
+All responses follow a consistent structure and include your registered email.
 
-You can ask the API to crunch some numbers for you.
+🛠 Tech Stack
 
-- **Fibonacci**: Get the first `n` numbers in the sequence. `n` must be an integer.
-  - Input: `{ "fibonacci": 7 }`
-  - Output: `[0, 1, 1, 2, 3, 5, 8]`
 
-- **Prime Numbers**: Filter a list to find only the primes.
-  - Input: `{ "prime": [2, 4, 7, 9, 11] }`
-  - Output: `[2, 7, 11]`
+Node.js (18.x)
 
-- **LCM & HCF**: Calculate Least Common Multiple or Highest Common Factor.
-  - Input: `{ "lcm": [12, 18, 24] }`
-  - Output: `72`
 
-- **HCF**: Calculate Highest Common Factor.
-  - Input: `{ "hcf": [24, 36, 60] }`
-  - Output: `12`
+Serverless Functions
 
-### 2. AI Implementation
 
-We've integrated Google's Gemini 1.5 Flash model to answer your questions. The unique twist? The API creates a concise response by returning **only the first word** of the AI's answer (stripped of punctuation).
+Vercel Deployment
 
-- **Example Request**:
-  ```json
-  { "AI": "What is the capital of India?" }
-  ```
-- **Example Response**:
-  ```json
-  {
-    "is_success": true,
-    "official_email": "your_email@example.com",
-    "data": "New"
-  }
-  ```
-  *(Note: The AI likely answered "New Delhi", and our API extracted just "New".)*
 
-## Health Check
+Google Gemini 1.5 Flash AI
 
-Want to make sure everything is running smoothly? Simply hit the health endpoint:
-`GET /api/health`
 
----
 
-Feel free to explore the code in `api/bfhl.js`. We've kept it clean and simple for easy review. Happy coding!
+📦 Getting Started
+Prerequisites
+Make sure you have:
+
+
+Node.js (v18 recommended)
+
+
+A valid Google Gemini API Key
+
+
+
+⚙ Configuration
+The application uses environment variables for configuration.
+Variable NameDescriptionOFFICIAL_EMAILYour registered email (example: your_email@bajajfinserv.in)GEMINI_API_KEYGoogle Gemini API key for AI responses
+👉 You can set these:
+
+
+In Vercel Environment Variables (recommended)
+
+
+Or directly inside api/bfhl.js for local testing
+
+
+
+📡 API Usage
+Endpoint
+POST /api/bfhl
+
+Send a JSON body with one operation at a time.
+
+🔢 Mathematical Operations
+Fibonacci Sequence
+Returns the first n Fibonacci numbers.
+Request
+{ "fibonacci": 7 }
+
+Response
+[0, 1, 1, 2, 3, 5, 8]
+
+
+Prime Number Filter
+Filters only prime numbers from a list.
+Request
+{ "prime": [2, 4, 7, 9, 11] }
+
+Response
+[2, 7, 11]
+
+
+LCM (Least Common Multiple)
+Request
+{ "lcm": [12, 18, 24] }
+
+Response
+72
+
+
+HCF (Highest Common Factor)
+Request
+{ "hcf": [24, 36, 60] }
+
+Response
+12
+
+
+🤖 AI Feature (Gemini)
+The API uses Google Gemini 1.5 Flash to answer questions.
+⚠️ Important Rule:
+Only the first word of the AI response is returned (without punctuation).
+Example
+Request
+{ "AI": "What is the capital of India?" }
+
+Response
+{
+  "is_success": true,
+  "official_email": "your_email@example.com",
+  "data": "New"
+}
+
+(Gemini answered “New Delhi”, API extracted only “New”)
+
+❤️ Health Check
+To verify the API is running:
+GET /api/health
+
+Returns a simple success response.
+
+📂 Code Structure
+
+
+api/bfhl.js → Main API logic
+
+
+Clean, readable, and easy to review for evaluation
+
+
+
+✅ Final Notes
+
+
+One request = one operation
+
+
+Designed strictly as per qualifier requirements
+
+
+Optimized for clarity, correctness, and deployment
+
+
+Happy coding 🚀
